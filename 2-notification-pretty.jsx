@@ -9,6 +9,7 @@ import { NOTIFICATION_TYPE } from 'everydollar/configs/constants';
 let Notification = props => (
   <div
     className={props.className}
+    onClick={props.handleClick}
     onMouseOver={props.handleMouseOver}
     onMouseLeave={props.handleMouseLeave}
   >
@@ -40,7 +41,8 @@ Notification.propTypes = {
   handleClose: PropTypes.func,
   handleLinkAction: PropTypes.func,
   handleMouseOver: PropTypes.func,
-  handleMouseLeave: PropTypes.func
+  handleMouseLeave: PropTypes.func,
+  handleClick: PropTypes.func
 };
 
 Notification.defaultProps = {

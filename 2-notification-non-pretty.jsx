@@ -7,7 +7,7 @@ import { FormattedHTMLMessage } from 'react-intl';
 import { NOTIFICATION_TYPE } from 'everydollar/configs/constants';
 
 let Notification = props => (
-  <div className={props.className} onMouseOver={props.handleMouseOver} onMouseLeave={props.handleMouseLeave}>
+  <div className={props.className} onClick={props.handleClick} onMouseOver={props.handleMouseOver} onMouseLeave={props.handleMouseLeave}>
     {props.linkMessageId && (
       <span className="Notification-action" onClick={props.handleLinkAction}>
         <FormattedHTMLMessage id={props.linkMessageId} values={props.linkMessageValues}/>
@@ -33,7 +33,8 @@ Notification.propTypes = {
   handleClose: PropTypes.func,
   handleLinkAction: PropTypes.func,
   handleMouseOver: PropTypes.func,
-  handleMouseLeave: PropTypes.func
+  handleMouseLeave: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 Notification.defaultProps = {
