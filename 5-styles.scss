@@ -1,0 +1,73 @@
+@import '~everydollar/assets/stylesheets/config';
+$chartColors: $gds-color-blue-30, $gds-color-red-50, $gds-color-amber-50, $gds-color-lime-50, $gds-color-purple-50, $gds-color-teal-50,
+  $gds-color-red-40, $gds-color-yellow-60, $gds-color-green-50, $gds-color-violet-50;
+
+$chartColorsLength: length($chartColors);
+
+.DonutChart-wrapper {
+  display: block;
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0 auto 2rem;
+  cursor: pointer;
+  height: 15rem;
+
+  @include breakpoint(md) {
+    @include v-breakpoint(sm) {
+      height: 19rem;
+    }
+  }
+}
+
+.DonutChart { width: 100%; height: 100%; }
+
+.DonutChart-path {
+  @for $i from 1 through $chartColorsLength {
+    &:nth-of-type(#{$chartColorsLength}n+#{$i}) {
+      fill: nth($chartColors, $i);
+    }
+  }
+
+
+  &.DonutChart-path--empty {
+    fill: $gds-color-gray-30;
+  }
+}
+
+.DonutChart-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  );
+  margin: 0;
+}
+
+.DonutChart-label, .DonutChart-value {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.DonutChart-label {
+  @extend %text--uppercase;
+
+  @include text-overflow();
+  display: block;
+  width: 13rem;
+  color: $gds-color-gray-60;
+  font-size: 1.9rem;
+
+  @include v-breakpoint(lt-sm) { width: 11rem; }
+}
+
+.DonutChart-value {
+  color: $gds-color-gray-70;
+  font-size: 2.4rem;
+}
+
+.DonutChart--over .DonutChart-value {
+  color: $gds-color-red-50;
+}
