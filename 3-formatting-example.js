@@ -13,12 +13,10 @@ export class DropdownContainer extends Component {
     activeId: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
     align: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-      }).isRequired
-    ).isRequired
+    options: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired
+    }).isRequired).isRequired
   };
 
   render() {
