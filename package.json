@@ -7,23 +7,19 @@
   "author": "Steven Johnson <developering@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
-
   "scripts": {
     "prettier-all": "prettier --single-quote --write '**/{*.js,*.jsx}'",
     "lint-staged": "lint-staged"
   },
-
   "lint-staged": {
     "**/{*.js,*.jsx}": [
       "prettier --single-quote --write",
       "git add"
     ]
   },
-
   "pre-commit": [
     "lint-staged"
   ],
-
   "devDependencies": {
     "lint-staged": "^7.0.4",
     "pre-commit": "^1.2.2",
